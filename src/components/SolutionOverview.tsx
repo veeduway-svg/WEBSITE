@@ -1,22 +1,21 @@
-import planningChar from "@/assets/stage-planning.png";
-import permitsChar from "@/assets/stage-permits.png";
-import constructionChar from "@/assets/stage-construction.png";
-import qualityChar from "@/assets/stage-quality.png";
-import completionChar from "@/assets/stage-completion.png";
+import BlueprintBuddy from "@/components/characters/BlueprintBuddy";
+import StampStar from "@/components/characters/StampStar";
+import HardhatHero from "@/components/characters/HardhatHero";
+import ChecklistChampion from "@/components/characters/ChecklistChampion";
+import HouseHappy from "@/components/characters/HouseHappy";
 
 const SolutionOverview = () => {
   const stages = [
-    { name: "Planning", image: planningChar },
-    { name: "Permits", image: permitsChar },
-    { name: "Construction", image: constructionChar },
-    { name: "Quality Control", image: qualityChar },
-    { name: "Completion", image: completionChar },
+    { name: "Planning", Character: BlueprintBuddy },
+    { name: "Permits", Character: StampStar },
+    { name: "Construction", Character: HardhatHero },
+    { name: "Quality Control", Character: ChecklistChampion },
+    { name: "Completion", Character: HouseHappy },
   ];
 
   return (
     <section className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Text Content */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
             One guideline for your entire home-building journey.
@@ -26,7 +25,6 @@ const SolutionOverview = () => {
           </p>
         </div>
 
-        {/* Character Lineup */}
         <div className="flex flex-wrap justify-center items-end gap-8 md:gap-12 lg:gap-16 max-w-6xl mx-auto">
           {stages.map((stage) => (
             <div
@@ -34,11 +32,7 @@ const SolutionOverview = () => {
               className="flex flex-col items-center gap-4 flex-shrink-0"
             >
               <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center">
-                <img
-                  src={stage.image}
-                  alt={`${stage.name} stage character`}
-                  className="w-full h-full object-contain"
-                />
+                <stage.Character />
               </div>
               <span className="text-sm md:text-base font-medium text-foreground">
                 {stage.name}

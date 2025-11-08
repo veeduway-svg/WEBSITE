@@ -1,0 +1,138 @@
+const BlueprintBuddy = () => (
+  <svg
+    width="140"
+    height="140"
+    viewBox="0 0 140 140"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g transform="translate(20, 15)">
+      <ellipse
+        cx="50"
+        cy="50"
+        rx="28"
+        ry="45"
+        fill="#FFA559"
+        stroke="#FF8C42"
+        strokeWidth="3"
+      />
+      <ellipse
+        cx="50"
+        cy="50"
+        rx="22"
+        ry="45"
+        fill="#FFB87A"
+      />
+      <line
+        x1="25"
+        y1="20"
+        x2="75"
+        y2="20"
+        stroke="#FF8C42"
+        strokeWidth="2"
+      />
+      <line
+        x1="25"
+        y1="35"
+        x2="75"
+        y2="35"
+        stroke="#FF8C42"
+        strokeWidth="2"
+      />
+      <line
+        x1="25"
+        y1="50"
+        x2="75"
+        y2="50"
+        stroke="#FF8C42"
+        strokeWidth="2"
+      />
+      <line
+        x1="25"
+        y1="65"
+        x2="75"
+        y2="65"
+        stroke="#FF8C42"
+        strokeWidth="2"
+      />
+      <line
+        x1="25"
+        y1="80"
+        x2="75"
+        y2="80"
+        stroke="#FF8C42"
+        strokeWidth="2"
+      />
+      <circle cx="38" cy="40" r="6" fill="#2C3E50" />
+      <circle cx="62" cy="40" r="6" fill="#2C3E50" />
+      <circle cx="39" cy="41" r="2" fill="#FFFFFF" />
+      <circle cx="63" cy="41" r="2" fill="#FFFFFF" />
+      <path
+        d="M 38 52 Q 50 60 62 52"
+        stroke="#2C3E50"
+        strokeWidth="3"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <line
+        x1="15"
+        y1="35"
+        x2="5"
+        y2="30"
+        stroke="#FF8C42"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <rect
+        x="0"
+        y="20"
+        width="8"
+        height="18"
+        fill="#FFD93D"
+        stroke="#FF8C42"
+        strokeWidth="2"
+        rx="1"
+      />
+      <line
+        x1="85"
+        y1="45"
+        x2="100"
+        y2="35"
+        stroke="#FF8C42"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <line
+        x1="85"
+        y1="55"
+        x2="100"
+        y2="65"
+        stroke="#FF8C42"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <line
+        x1="35"
+        y1="100"
+        x2="30"
+        y2="120"
+        stroke="#FF8C42"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <line
+        x1="65"
+        y1="100"
+        x2="70"
+        y2="120"
+        stroke="#FF8C42"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <circle cx="30" cy="122" r="5" fill="#FF8C42" />
+      <circle cx="70" cy="122" r="5" fill="#FF8C42" />
+    </g>
+  </svg>
+);
+
+export default BlueprintBuddy;
