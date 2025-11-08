@@ -1,16 +1,25 @@
-import constructionCharacter from "@/assets/Whisk_c6c6d189954fe7f84b74de8f306fff1ceg.png";
-import BlueprintBuddy from "@/components/characters/BlueprintBuddy";
-import StampStar from "@/components/characters/StampStar";
-import ChecklistChampion from "@/components/characters/ChecklistChampion";
-import HouseHappy from "@/components/characters/HouseHappy";
-
 const SolutionOverview = () => {
   const stages = [
-    { name: "Planning", Character: BlueprintBuddy, type: "component" as const },
-    { name: "Permits", Character: StampStar, type: "component" as const },
-    { name: "Construction", image: constructionCharacter, type: "image" as const },
-    { name: "Quality Control", Character: ChecklistChampion, type: "component" as const },
-    { name: "Completion", Character: HouseHappy, type: "component" as const },
+    {
+      name: "Planning",
+      image: "/Whisk_2fd49894c56c7878cd34890078db69e6eg.png"
+    },
+    {
+      name: "Permits",
+      image: "/Whisk_ea72fefa8a79714a37c49fec6581a45beg.png"
+    },
+    {
+      name: "Construction",
+      image: "/Whisk_bafb2f77b308ac692324440ca3f19873eg.png"
+    },
+    {
+      name: "Quality Control",
+      image: "/Whisk_8a3b640e05d715ea1b84f70d5fc86e5ceg.png"
+    },
+    {
+      name: "Completion",
+      image: "/Whisk_ea72fefa8a79714a37c49fec6581a45beg.png"
+    },
   ];
 
   return (
@@ -29,18 +38,14 @@ const SolutionOverview = () => {
           {stages.map((stage) => (
             <div
               key={stage.name}
-              className="flex flex-col items-center gap-4 flex-shrink-0"
+              className="flex flex-col items-center gap-2 flex-shrink-0"
             >
-              <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center">
-                {stage.type === "image" ? (
-                  <img
-                    src={stage.image}
-                    alt={stage.name}
-                    className="w-full h-full object-contain"
-                  />
-                ) : (
-                  <stage.Character />
-                )}
+              <div className="w-44 h-44 md:w-52 md:h-52 lg:w-60 lg:h-60 flex items-center justify-center">
+                <img
+                  src={stage.image}
+                  alt={stage.name}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-sm md:text-base font-medium text-foreground">
                 {stage.name}
