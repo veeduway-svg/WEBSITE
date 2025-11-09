@@ -3,7 +3,7 @@ import { supabase, type BlogPost } from '@/lib/supabase';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
-const categories = ['All', 'Tips & Guides', 'Budgeting', 'Quality Control'];
+const categories = ['All', 'Tips & Guides', 'Budgeting'];
 
 export default function BlogSection() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -65,8 +65,8 @@ export default function BlogSection() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[1, 2].map((i) => (
               <Card key={i} className="overflow-hidden border-0 shadow-lg">
                 <div className="aspect-[4/3] bg-gray-200 animate-pulse" />
                 <CardContent className="p-6">
@@ -76,7 +76,7 @@ export default function BlogSection() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {filteredPosts.map((post) => (
               <Card
                 key={post.id}
