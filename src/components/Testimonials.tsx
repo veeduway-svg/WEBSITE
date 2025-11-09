@@ -1,70 +1,82 @@
-import { Star, User } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 
 const Testimonials = () => {
   const testimonials = [
     {
       name: "Priya Shankar",
       location: "Chennai",
-      quote: "VeeduWay's 7-step roadmap made our construction journey stress-free. Every legal document and approval was clearly explained. We felt confident at every stage!",
-      initials: "PS"
+      quote: "VeeduWay's 7-step roadmap made our construction journey stress-free. Every legal document and approval was clearly explained.",
+      initials: "PS",
+      position: "md:translate-y-0"
     },
     {
       name: "Rajesh Kumar",
       location: "Coimbatore",
       quote: "The budget templates were incredibly helpful. We saved over ₹3 lakhs by following their PMAY subsidy guidance and contingency planning strategies.",
-      initials: "RK"
+      initials: "RK",
+      position: "md:translate-y-12"
     },
     {
       name: "Anitha Venkat",
       location: "Madurai",
-      quote: "Finding the right architect was always confusing. VeeduWay's contractor selection guide and contract templates gave us peace of mind throughout the build.",
-      initials: "AV"
+      quote: "Finding the right architect was always confusing. VeeduWay's contractor selection guide gave us peace of mind throughout the build.",
+      initials: "AV",
+      position: "md:translate-y-6"
     }
   ];
 
   return (
-    <section className="bg-[#F5F1E8] pt-0 pb-16 md:pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Hear from Our Happy Homeowners
+    <section className="relative bg-[#F5F1E8] pt-0 pb-16 md:pb-32 overflow-hidden">
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-amber-200 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-orange-200 rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
+            We're Here to Make Things Clear
           </h2>
-          <p className="text-lg text-gray-600 text-center">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
             Real stories from customers who built their dream home with VeeduWay's guidance
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow duration-300"
+              className={`${testimonial.position} transition-all duration-300 hover:-translate-y-2`}
             >
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-amber-100 flex items-center justify-center mb-4 border-2 border-gray-200">
-                  <span className="text-xl font-bold text-gray-700">
-                    {testimonial.initials}
-                  </span>
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-400 to-amber-400 flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span className="text-lg font-bold text-white">
+                      {testimonial.initials}
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 text-lg">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-sm text-gray-500">
+                      {testimonial.location}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-5 h-5 fill-amber-400 text-amber-400"
+                      className="w-4 h-4 fill-amber-400 text-amber-400"
                     />
                   ))}
                 </div>
 
-                <p className="text-gray-700 italic text-center leading-relaxed mb-6">
+                <p className="text-gray-700 leading-relaxed text-base">
                   "{testimonial.quote}"
-                </p>
-
-                <h3 className="font-semibold text-gray-900 text-center">
-                  {testimonial.name}
-                </h3>
-                <p className="text-sm text-gray-500 text-center">
-                  {testimonial.location}
                 </p>
               </div>
             </div>
