@@ -4,16 +4,22 @@ const ContentPreview = () => {
   const columns = [
     {
       icon: ShieldCheck,
+      iconColor: "text-[#0074D9]",
+      bgColor: "bg-blue-50",
       title: "Legal & Approval Checklists",
       description: "Step-by-step guides for Patta/Chitta verification, CMDA/DTCP approvals, RERA compliance, and obtaining building permits with exact document requirements."
     },
     {
       icon: Calculator,
+      iconColor: "text-[#EA580C]",
+      bgColor: "bg-orange-50",
       title: "Budget & Financing Templates",
       description: "Comprehensive cost breakdowns, home loan requirements, PMAY subsidy eligibility (₹1.5L for EWS), and 10-15% contingency planning strategies."
     },
     {
       icon: Users,
+      iconColor: "text-[#16A34A]",
+      bgColor: "bg-green-50",
       title: "Professional Selection & Contracts",
       description: "How to choose qualified architects, structural engineers, and contractors—plus written contract templates with payment terms, defect liability, and dispute clauses."
     }
@@ -36,9 +42,12 @@ const ContentPreview = () => {
 
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           {columns.map((column, index) => (
-            <div key={index} className="text-center">
+            <div
+              key={index}
+              className={`text-center ${column.bgColor} p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300`}
+            >
               <column.icon
-                className="mx-auto text-[#0074D9]"
+                className={`mx-auto ${column.iconColor}`}
                 size={56}
                 strokeWidth={2}
               />
