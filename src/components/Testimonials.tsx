@@ -5,21 +5,21 @@ const Testimonials = () => {
     {
       name: "Priya Shankar",
       location: "Chennai",
-      quote: "VeeduWay's 7-step roadmap made our construction journey stress-free. Every legal document and approval was clearly explained.",
+      quote: "Finally understood the entire home construction process. No more confusion!",
       initials: "PS",
       position: "md:translate-y-0"
     },
     {
       name: "Rajesh Kumar",
       location: "Coimbatore",
-      quote: "The budget templates were incredibly helpful. We saved over ₹3 lakhs by following their PMAY subsidy guidance and contingency planning strategies.",
+      quote: "Clear guidance at every step. Wish I had this when I started planning.",
       initials: "RK",
       position: "md:translate-y-12"
     },
     {
       name: "Anitha Venkat",
       location: "Madurai",
-      quote: "Finding the right architect was always confusing. VeeduWay's contractor selection guide gave us peace of mind throughout the build.",
+      quote: "The roadmap made everything simple. Now I know exactly what to do next.",
       initials: "AV",
       position: "md:translate-y-6"
     }
