@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FileCheck, ClipboardCheck, Calculator, Users, ShieldCheck, BadgeCheck, ArrowRight, X, Loader2, CheckCircle2 } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { supabase } from '@/lib/supabase';
@@ -11,13 +11,30 @@ interface Challenge {
   name: string;
 }
 
+interface FormData {
+  email: string;
+  sub_problem: string;
+  note: string;
+  consent_interview: boolean;
+}
+
+interface FormErrors {
+  email?: string;
+  sub_problem?: string;
+}
+
 const ChallengeCards = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
-  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
+  const [formData, setFormData] = useState<FormData>({
+    email: '',
+    sub_problem: '',
+    note: '',
+    consent_interview: false,
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const challenges: Challenge[] = [
@@ -65,30 +82,41 @@ const ChallengeCards = () => {
     }
   ];
 
+  const subProblemOptions = [
+    'Finding reliable information',
+    'Understanding the process',
+    'Cost and budget concerns',
+    'Finding trustworthy professionals',
+    'Time management',
+    'Legal and compliance issues',
+    'Quality and safety concerns',
+    'Other'
+  ];
+
   const handleCardClick = (challenge: Challenge) => {
     setSelectedChallenge(challenge);
     setIsModalOpen(true);
     setShowSuccessMessage(false);
-    setFormData({ name: '', email: '', phone: '' });
+    setFormData({
+      email: '',
+      sub_problem: '',
+      note: '',
+      consent_interview: false,
+    });
     setErrors({});
     setSubmitError(null);
   };
 
-  const validateForm = () => {
-    const newErrors: { name?: string; email?: string; phone?: string } = {};
-
-    if (!formData.name || formData.name.trim().length < 2) {
-      newErrors.name = 'Please enter your full name';
-    }
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email || !emailRegex.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    const phoneRegex = /^\d{10}$/;
-    if (!formData.phone || !phoneRegex.test(formData.phone)) {
-      newErrors.phone = 'Please enter a valid 10-digit phone number';
+    if (!formData.sub_problem) {
+      newErrors.sub_problem = 'Please select a specific issue';
     }
 
     setErrors(newErrors);
@@ -107,11 +135,12 @@ const ChallengeCards = () => {
 
     try {
       const submissionData = {
-        name: formData.name.trim(),
         email: formData.email.trim(),
-        phone: formData.phone.trim(),
         challenge_id: selectedChallenge?.id || '',
         challenge_name: selectedChallenge?.name || '',
+        sub_problem: formData.sub_problem,
+        note: formData.note.trim() || null,
+        consent_interview: formData.consent_interview,
       };
 
       const { error: dbError } = await supabase
@@ -124,47 +153,20 @@ const ChallengeCards = () => {
 
       const web3FormsPayload = {
         access_key: 'bc0256e5-2b39-4ce9-840b-b87eb29a99b5',
-        name: formData.name.trim(),
         email: formData.email.trim(),
-        phone: formData.phone.trim(),
-        challenge: selectedChallenge?.name || 'Not specified',
-        subject: 'New VeeduWay Guideline Download Request',
-        from_name: 'VeeduWay',
-        replyto: formData.email.trim(),
-        message: `Hi ${formData.name.trim()},
-
-Thank you for requesting our comprehensive Home Construction Guideline for Tamil Nadu!
-
-📥 DOWNLOAD YOUR GUIDELINE HERE:
-https://drive.google.com/uc?export=download&id=1rfUZWEGZyFXMgxD74NatntGSQGIZC6UG
-
-WHAT'S INSIDE:
-✓ Land verification & legal checklist
-✓ Complete permit application process
-✓ Budget planning templates
-✓ Contractor selection guide
-✓ Quality control measures
-✓ Occupancy certificate requirements
-✓ Post-construction maintenance tips
-
-We've designed this guideline specifically for first-time homeowners in Tamil Nadu to navigate the construction process with confidence.
-
-HAVE QUESTIONS?
-Reply to this email anytime - we're here to help!
-
-Best regards,
-The VeeduWay Team
-
----
-Build your home without the stress, scams, or confusion.`
+        problem_type: selectedChallenge?.id || '',
+        sub_problem: formData.sub_problem,
+        note: formData.note.trim(),
+        consent_interview: formData.consent_interview,
+        redirect: false,
+        botcheck: '',
       };
-
-      console.log('Submitting to Web3Forms:', web3FormsPayload);
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify(web3FormsPayload),
       });
@@ -172,18 +174,10 @@ Build your home without the stress, scams, or confusion.`
       const result = await response.json();
 
       if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Email submission failed');
+        throw new Error(result.message || 'Submission failed');
       }
 
       setShowSuccessMessage(true);
-
-      setTimeout(() => {
-        setIsModalOpen(false);
-        setTimeout(() => {
-          setShowSuccessMessage(false);
-          setFormData({ name: '', email: '', phone: '' });
-        }, 300);
-      }, 5000);
     } catch (error) {
       console.error('Submission error:', error);
       setSubmitError('Failed to submit your request. Please try again or contact us directly.');
@@ -192,11 +186,31 @@ Build your home without the stress, scams, or confusion.`
     }
   };
 
+  const handleDownloadClick = () => {
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+        setFormData({
+          email: '',
+          sub_problem: '',
+          note: '',
+          consent_interview: false,
+        });
+      }, 300);
+    }, 1800);
+  };
+
   const closeModal = () => {
     setIsModalOpen(false);
     setTimeout(() => {
       setShowSuccessMessage(false);
-      setFormData({ name: '', email: '', phone: '' });
+      setFormData({
+        email: '',
+        sub_problem: '',
+        note: '',
+        consent_interview: false,
+      });
       setErrors({});
       setSubmitError(null);
     }, 300);
@@ -250,7 +264,7 @@ Build your home without the stress, scams, or confusion.`
         <DialogContent className="sm:max-w-md">
           <button
             onClick={closeModal}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
+            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#0074D9] focus:ring-offset-2 disabled:pointer-events-none"
           >
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
@@ -262,71 +276,81 @@ Build your home without the stress, scams, or confusion.`
                 Get Your Free Construction Guideline
               </h3>
               <p className="text-gray-600 text-sm md:text-base mb-6">
-                Download our comprehensive 7-step roadmap for building your home in Tamil Nadu
+                Tell us a bit more so we can improve our resources for you
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name*
+                  <label htmlFor="sub_problem" className="block text-sm font-medium text-gray-700 mb-1">
+                    What specific issue are you facing?*
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    onBlur={validateForm}
-                    placeholder="Enter your name"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition ${
-                      errors.name ? 'border-red-500' : 'border-gray-300'
+                  <select
+                    id="sub_problem"
+                    value={formData.sub_problem}
+                    onChange={(e) => setFormData({ ...formData, sub_problem: e.target.value })}
+                    aria-invalid={!!errors.sub_problem}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0074D9] focus:border-[#0074D9] outline-none transition ${
+                      errors.sub_problem ? 'border-red-600' : 'border-gray-300'
                     }`}
-                  />
-                  {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  >
+                    <option value="">Select an issue...</option>
+                    {subProblemOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.sub_problem && (
+                    <p className="text-red-600 text-sm mt-1">{errors.sub_problem}</p>
                   )}
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address*
+                    Email or WhatsApp*
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     id="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    onBlur={validateForm}
-                    placeholder="your@email.com"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
+                    placeholder="your@email.com or WhatsApp number"
+                    aria-invalid={!!errors.email}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0074D9] focus:border-[#0074D9] outline-none transition ${
+                      errors.email ? 'border-red-600' : 'border-gray-300'
                     }`}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                    <p className="text-red-600 text-sm mt-1">{errors.email}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone Number*
+                  <label htmlFor="note" className="block text-sm font-medium text-gray-700 mb-1">
+                    Additional note (optional)
                   </label>
                   <input
-                    type="tel"
-                    id="phone"
-                    value={formData.phone}
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/\D/g, '').slice(0, 10);
-                      setFormData({ ...formData, phone: value });
-                    }}
-                    onBlur={validateForm}
-                    placeholder="10-digit mobile number"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition ${
-                      errors.phone ? 'border-red-500' : 'border-gray-300'
-                    }`}
+                    type="text"
+                    id="note"
+                    value={formData.note}
+                    onChange={(e) => setFormData({ ...formData, note: e.target.value })}
+                    placeholder="Any specific concerns? (one line)"
+                    maxLength={200}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0074D9] focus:border-[#0074D9] outline-none transition"
                   />
-                  {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-                  )}
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="consent_interview"
+                    checked={formData.consent_interview}
+                    onChange={(e) => setFormData({ ...formData, consent_interview: e.target.checked })}
+                    className="mt-1 w-4 h-4 text-[#0074D9] border-gray-300 rounded focus:ring-2 focus:ring-[#0074D9] focus:ring-offset-0"
+                  />
+                  <label htmlFor="consent_interview" className="text-sm text-gray-700 cursor-pointer">
+                    I'm open to a quick interview to help VeeduWay understand homeowner challenges better
+                  </label>
                 </div>
 
                 {submitError && (
@@ -338,7 +362,7 @@ Build your home without the stress, scams, or confusion.`
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#0074D9] hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#0074D9] hover:bg-[#0062b8] text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[#0074D9] focus:ring-offset-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -346,35 +370,35 @@ Build your home without the stress, scams, or confusion.`
                       Submitting...
                     </>
                   ) : (
-                    'Get Your Free Guideline'
+                    'Submit & Get Guideline'
                   )}
                 </button>
 
                 <p className="text-xs text-gray-500 text-center mt-3">
-                  🔒 We respect your privacy. No spam, ever.
+                  We respect your privacy. No spam, ever.
                 </p>
               </form>
             </div>
           ) : (
             <div className="py-8 text-center">
               <div className="mb-4 flex justify-center">
-                <CheckCircle2 className="text-green-500" size={64} />
+                <CheckCircle2 className="text-green-600" size={64} />
               </div>
-              <h3 className="text-2xl font-bold mb-2">Success!</h3>
-              <h4 className="text-xl font-semibold mb-4">Check Your Email</h4>
-              <p className="text-gray-600 mb-2">
-                We've sent your free guideline to
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Thanks! We've got your details.
+              </h3>
+              <p className="text-gray-600 mb-6">
+                You can download your free guideline now. We'll also use your input to improve our micro-apps.
               </p>
-              <p className="font-semibold text-[#0074D9] mb-6">{formData.email}</p>
-              <p className="text-sm text-gray-500 mb-6">
-                📧 Didn't receive it? Check spam folder or contact us.
-              </p>
-              <button
-                onClick={closeModal}
-                className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-6 rounded-lg transition"
+
+              <a
+                href="https://drive.google.com/uc?export=download&id=1rfUZWEGZyFXMgxD74NatntGSQGIZC6UG"
+                download
+                onClick={handleDownloadClick}
+                className="inline-block w-full bg-[#0074D9] hover:bg-[#0062b8] text-white font-semibold py-3 px-6 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-[#0074D9] focus:ring-offset-2"
               >
-                Close
-              </button>
+                Download the PDF
+              </a>
             </div>
           )}
         </DialogContent>
