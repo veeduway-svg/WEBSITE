@@ -36,7 +36,7 @@ const Header = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:block">
-            <Button size="lg" className="font-semibold bg-veeduway-accent hover:bg-veeduway-accentHover text-white">
+            <Button size="lg" className="font-semibold bg-[#0074D9] hover:bg-[#005BB5] text-white">
               Get Your Free Guideline
             </Button>
           </div>
@@ -65,7 +65,7 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <Button size="lg" className="font-semibold w-full bg-veeduway-accent hover:bg-veeduway-accentHover text-white">
+              <Button size="lg" className="font-semibold w-full bg-[#0074D9] hover:bg-[#005BB5] text-white">
                 Get Your Free Guideline
               </Button>
             </div>

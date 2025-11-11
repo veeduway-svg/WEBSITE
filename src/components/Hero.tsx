@@ -19,7 +19,7 @@ const Hero = () => {
             <div className="space-y-4">
               <Button
                 size="lg"
-                className="text-lg px-8 py-6 font-semibold w-full md:w-auto min-h-[48px] bg-veeduway-accent hover:bg-veeduway-accentHover text-white"
+                className="text-lg px-8 py-6 font-semibold w-full md:w-auto min-h-[48px] bg-[#0074D9] hover:bg-[#005BB5] text-white"
               >
                 Get Your Free Guideline
               </Button>

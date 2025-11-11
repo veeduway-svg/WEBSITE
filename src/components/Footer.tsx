@@ -35,21 +35,21 @@ const Footer = () => {
               <a
                 href="#"
                 aria-label="LinkedIn"
-                className="hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                className="hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
               >
                 <Linkedin size={20} />
               </a>
               <a
                 href="#"
                 aria-label="Twitter"
-                className="hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                className="hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
               >
                 <Twitter size={20} />
               </a>
               <a
                 href="#"
                 aria-label="YouTube"
-                className="hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                className="hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
               >
                 <Youtube size={20} />
               </a>
@@ -64,7 +64,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={handleDownloadClick}
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   Download Guideline
                 </button>
@@ -73,7 +73,7 @@ const Footer = () => {
                 <a
                   href="#problems"
                   onClick={(e) => handleSmoothScroll(e, 'problems')}
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   Problem Finder
                 </a>
@@ -82,7 +82,7 @@ const Footer = () => {
                 <a
                   href="#solution"
                   onClick={(e) => handleSmoothScroll(e, 'solution')}
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   Solution Overview
                 </a>
@@ -98,7 +98,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/blog"
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   Blog
                 </Link>
@@ -106,7 +106,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   FAQs
                 </a>
@@ -122,7 +122,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   About
                 </a>
@@ -130,7 +130,7 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:hello@veeduway.com"
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   Contact
                 </a>
@@ -138,7 +138,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/privacy"
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   Privacy Policy
                 </Link>
@@ -146,7 +146,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/terms"
-                  className="text-sm text-veeduway-muted hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+                  className="text-sm text-veeduway-muted hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
                 >
                   Terms of Use
                 </Link>
@@ -163,21 +163,21 @@ const Footer = () => {
           <div className="flex items-center gap-4 text-sm text-veeduway-muted">
             <Link
               to="/privacy"
-              className="hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+              className="hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
             >
               Privacy
             </Link>
             <span className="text-veeduway-border">|</span>
             <Link
               to="/terms"
-              className="hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+              className="hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
             >
               Terms
             </Link>
             <span className="text-veeduway-border">|</span>
             <a
               href="#"
-              className="hover:text-veeduway-accent transition-colors focus:outline-none focus:ring-2 focus:ring-veeduway-accent rounded"
+              className="hover:text-[#0074D9] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0074D9] rounded"
             >
               Disclaimer
             </a>
