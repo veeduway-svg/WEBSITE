@@ -34,7 +34,7 @@ const Hero = () => {
         <figure className="relative">
           <div className="absolute -inset-4 md:-inset-6 rounded-3xl bg-white/40 blur-2xl opacity-60 pointer-events-none" />
           <img
-            src="/hero-family-keys.jpg"
+            src="/Whisk_7e0f6495b6e4b88a6e44dfa569b50171dr (1).jpeg"
             alt="Happy family receiving house keys in front of their new home"
             className="relative z-[1] w-full h-auto rounded-3xl shadow-2xl ring-1 ring-blue-100 object-cover transition will-change-transform hover:-translate-y-0.5"
             loading="eager"
