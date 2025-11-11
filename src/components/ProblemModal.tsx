@@ -158,7 +158,7 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
       <DialogContent className="sm:max-w-md">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#0074D9] focus:ring-offset-2 disabled:pointer-events-none"
+          className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-veeduway-accent focus:ring-offset-2 disabled:pointer-events-none"
         >
           <X className="h-4 w-4" />
           <span className="sr-only">Close</span>
@@ -166,16 +166,16 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
 
         {!showSuccessMessage ? (
           <div className="py-6">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold mb-2">
+            <h3 className="font-serif text-2xl md:text-3xl font-bold mb-2 text-veeduway-text">
               Get Your Free Construction Guideline
             </h3>
-            <p className="text-gray-600 text-sm md:text-base mb-6">
+            <p className="text-veeduway-muted text-sm md:text-base mb-6">
               Tell us a bit more so we can improve our resources for you
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="sub_problem" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="sub_problem" className="block text-sm font-medium text-veeduway-text mb-1">
                   What specific issue are you facing?*
                 </label>
                 <select
@@ -183,8 +183,8 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
                   value={formData.sub_problem}
                   onChange={(e) => setFormData({ ...formData, sub_problem: e.target.value })}
                   aria-invalid={!!errors.sub_problem}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0074D9] focus:border-[#0074D9] outline-none transition ${
-                    errors.sub_problem ? 'border-red-600' : 'border-gray-300'
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-veeduway-accent focus:border-veeduway-accent outline-none transition ${
+                    errors.sub_problem ? 'border-red-600' : 'border-veeduway-border'
                   }`}
                 >
                   <option value="">Select an issue...</option>
@@ -200,7 +200,7 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-veeduway-text mb-1">
                   Email or WhatsApp*
                 </label>
                 <input
@@ -210,8 +210,8 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="your@email.com or WhatsApp number"
                   aria-invalid={!!errors.email}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0074D9] focus:border-[#0074D9] outline-none transition ${
-                    errors.email ? 'border-red-600' : 'border-gray-300'
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-veeduway-accent focus:border-veeduway-accent outline-none transition ${
+                    errors.email ? 'border-red-600' : 'border-veeduway-border'
                   }`}
                 />
                 {errors.email && (
@@ -220,7 +220,7 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
               </div>
 
               <div>
-                <label htmlFor="note" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="note" className="block text-sm font-medium text-veeduway-text mb-1">
                   Additional note (optional)
                 </label>
                 <input
@@ -230,7 +230,7 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
                   onChange={(e) => setFormData({ ...formData, note: e.target.value })}
                   placeholder="Any specific concerns? (one line)"
                   maxLength={200}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0074D9] focus:border-[#0074D9] outline-none transition"
+                  className="w-full px-4 py-3 border border-veeduway-border rounded-lg focus:ring-2 focus:ring-veeduway-accent focus:border-veeduway-accent outline-none transition"
                 />
               </div>
 
@@ -240,9 +240,9 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
                   id="consent_interview"
                   checked={formData.consent_interview}
                   onChange={(e) => setFormData({ ...formData, consent_interview: e.target.checked })}
-                  className="mt-1 w-4 h-4 text-[#0074D9] border-gray-300 rounded focus:ring-2 focus:ring-[#0074D9] focus:ring-offset-0"
+                  className="mt-1 w-4 h-4 text-veeduway-accent border-veeduway-border rounded focus:ring-2 focus:ring-veeduway-accent focus:ring-offset-0"
                 />
-                <label htmlFor="consent_interview" className="text-sm text-gray-700 cursor-pointer">
+                <label htmlFor="consent_interview" className="text-sm text-veeduway-text cursor-pointer">
                   I'm open to a quick interview to help VeeduWay understand homeowner challenges better
                 </label>
               </div>
@@ -256,7 +256,7 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#0074D9] hover:bg-[#0062b8] text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[#0074D9] focus:ring-offset-2"
+                className="w-full bg-veeduway-accent hover:bg-veeduway-accentHover text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-veeduway-accent focus:ring-offset-2"
               >
                 {isSubmitting ? (
                   <>
@@ -268,7 +268,7 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
                 )}
               </button>
 
-              <p className="text-xs text-gray-500 text-center mt-3">
+              <p className="text-xs text-veeduway-muted text-center mt-3">
                 We respect your privacy. No spam, ever.
               </p>
             </form>
@@ -278,10 +278,10 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
             <div className="mb-4 flex justify-center">
               <CheckCircle2 className="text-green-600" size={64} />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className="text-2xl font-bold text-veeduway-text mb-2">
               Thanks! We've got your details.
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-veeduway-muted mb-6">
               You can download your free guideline now. We'll also use your input to improve our micro-apps.
             </p>
 
@@ -289,7 +289,7 @@ const ProblemModal = ({ isOpen, selectedProblem, onClose }: ProblemModalProps) =
               href="https://drive.google.com/uc?export=download&id=1rfUZWEGZyFXMgxD74NatntGSQGIZC6UG"
               download
               onClick={handleDownloadClick}
-              className="inline-block w-full bg-[#0074D9] hover:bg-[#0062b8] text-white font-semibold py-3 px-6 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-[#0074D9] focus:ring-offset-2"
+              className="inline-block w-full bg-veeduway-accent hover:bg-veeduway-accentHover text-white font-semibold py-3 px-6 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-veeduway-accent focus:ring-offset-2"
             >
               Download the PDF
             </a>

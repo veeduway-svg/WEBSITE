@@ -3,15 +3,15 @@ import heroImage from "@/assets/hero-illustration.png";
 
 const Hero = () => {
   return (
-    <section className="pt-24 md:pt-32 pb-8 md:pb-8 bg-[#F5F1E8]">
+    <section className="pt-24 md:pt-32 pb-8 md:pb-8 bg-veeduway-base">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-[60%_40%] gap-8 md:gap-12 items-center animate-fade-in">
           <div className="space-y-6 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-veeduway-text leading-tight">
               Build your home without the stress, scams, or confusion.
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg md:text-xl text-veeduway-muted leading-relaxed">
               Get a step-by-step guideline to navigate Tamil Nadu's construction
               process—from permits to move-in.
             </p>
@@ -19,11 +19,11 @@ const Hero = () => {
             <div className="space-y-4">
               <Button
                 size="lg"
-                className="text-lg px-8 py-6 font-semibold w-full md:w-auto min-h-[48px]"
+                className="text-lg px-8 py-6 font-semibold w-full md:w-auto min-h-[48px] bg-veeduway-accent hover:bg-veeduway-accentHover text-white"
               >
                 Get Your Free Guideline
               </Button>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-veeduway-muted">
                 No spam. Curated by experts.
               </p>
             </div>

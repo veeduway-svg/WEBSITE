@@ -26,13 +26,13 @@ const SolutionOverview = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-[#F5F1E8]">
+    <section className="py-16 md:py-24 bg-veeduway-alt">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-veeduway-text mb-6">
             One guideline for your entire home-building journey.
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-veeduway-muted max-w-3xl mx-auto">
             From permits and approvals to contractor selection and quality checks—everything you need in one place.
           </p>
         </div>
@@ -50,7 +50,7 @@ const SolutionOverview = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-sm md:text-base font-medium text-foreground -mt-2">
+              <span className="text-sm md:text-base font-medium text-veeduway-text -mt-2">
                 {stage.name}
               </span>
             </div>

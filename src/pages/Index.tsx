@@ -8,7 +8,7 @@ import FinalCTASection from "@/components/FinalCTASection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-veeduway-base text-veeduway-text">
       <Header />
       <Hero />
       <SolutionOverview />

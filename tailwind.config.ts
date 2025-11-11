@@ -17,6 +17,16 @@ export default {
         serif: ['Lora', 'Georgia', 'serif'],
       },
       colors: {
+        veeduway: {
+          base: "var(--vw-base)",
+          alt: "var(--vw-alt)",
+          accent: "var(--vw-accent)",
+          accentHover: "var(--vw-accent-hover)",
+          text: "var(--vw-text)",
+          muted: "var(--vw-text-muted)",
+          card: "var(--vw-card)",
+          border: "var(--vw-border)",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -62,13 +62,13 @@ const ChallengeCards = () => {
   };
 
   return (
-    <section className="bg-orange-50">
+    <section className="bg-veeduway-base">
       <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-wide text-gray-600 mb-4">
+          <p className="text-sm uppercase tracking-wide text-veeduway-muted mb-4">
             Find What You Need
           </p>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-veeduway-text">
             What construction challenge are you facing?
           </h2>
         </div>
@@ -80,7 +80,7 @@ const ChallengeCards = () => {
               <div
                 key={challenge.id}
                 onClick={() => handleCardClick(challenge)}
-                className="bg-white rounded-full shadow-md hover:shadow-lg p-6 md:p-8 flex items-center justify-between gap-4 hover:scale-[1.02] transition-all cursor-pointer"
+                className="bg-veeduway-card rounded-full shadow-md hover:shadow-lg p-6 md:p-8 flex items-center justify-between gap-4 hover:scale-[1.02] transition-all cursor-pointer border border-veeduway-border"
               >
                 <div className="flex items-center gap-4">
                   <div
@@ -92,11 +92,11 @@ const ChallengeCards = () => {
                       style={{ color: challenge.color }}
                     />
                   </div>
-                  <span className="text-base md:text-lg font-semibold text-gray-800">
+                  <span className="text-base md:text-lg font-semibold text-veeduway-text">
                     {challenge.text}
                   </span>
                 </div>
-                <ArrowRight className="text-gray-400 flex-shrink-0" size={20} />
+                <ArrowRight className="text-veeduway-muted flex-shrink-0" size={20} />
               </div>
             );
           })}

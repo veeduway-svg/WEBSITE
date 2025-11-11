@@ -13,7 +13,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm z-50 border-b border-border">
+    <header className="fixed top-0 left-0 right-0 bg-veeduway-card/95 backdrop-blur-sm z-50 border-b border-veeduway-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
@@ -27,7 +27,7 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground hover:text-primary transition-colors text-base font-medium"
+                className="text-veeduway-text hover:text-veeduway-accent transition-colors text-base font-medium"
               >
                 {link.name}
               </a>
@@ -36,14 +36,14 @@ const Header = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:block">
-            <Button size="lg" className="font-semibold">
+            <Button size="lg" className="font-semibold bg-veeduway-accent hover:bg-veeduway-accentHover text-white">
               Get Your Free Guideline
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 text-veeduway-text hover:text-veeduway-accent transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -53,19 +53,19 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-veeduway-border">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-foreground hover:text-primary transition-colors text-base font-medium py-2"
+                  className="text-veeduway-text hover:text-veeduway-accent transition-colors text-base font-medium py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
-              <Button size="lg" className="font-semibold w-full">
+              <Button size="lg" className="font-semibold w-full bg-veeduway-accent hover:bg-veeduway-accentHover text-white">
                 Get Your Free Guideline
               </Button>
             </div>

@@ -26,16 +26,16 @@ const ContentPreview = () => {
   ];
 
   return (
-    <section className="bg-[#F5F1E8]">
+    <section className="bg-veeduway-alt">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-wide text-gray-500 mb-3">
+          <p className="text-sm uppercase tracking-wide text-veeduway-muted mb-3">
             What You'll Get
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-veeduway-text">
             A complete 7-step roadmap for Tamil Nadu homeowners
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-veeduway-muted max-w-3xl mx-auto">
             From land verification to move-in day, get detailed guidance on every stage of your home construction journey.
           </p>
         </div>
@@ -51,10 +51,10 @@ const ContentPreview = () => {
                 size={56}
                 strokeWidth={2}
               />
-              <h3 className="text-xl md:text-2xl font-bold mt-6 mb-3">
+              <h3 className="text-xl md:text-2xl font-bold mt-6 mb-3 text-veeduway-text">
                 {column.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-veeduway-muted leading-relaxed">
                 {column.description}
               </p>
             </div>
