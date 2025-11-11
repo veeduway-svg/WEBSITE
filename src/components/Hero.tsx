@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { useProblemModal } from "@/contexts/ProblemModalProvider";
-import heroImage from "@/assets/hero-illustration.png";
 
 const Hero = () => {
   const { open } = useProblemModal();
@@ -14,8 +13,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-veeduway-muted leading-relaxed">
-              Get a step-by-step guideline to navigate Tamil Nadu's construction
-              process—from permits to move-in.
+              Get a clear, step-by-step guide to navigate Tamil Nadu's home construction process — from permits to move-in, stress-free.
             </p>
 
             <div className="space-y-4">
@@ -32,12 +30,15 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center mt-8 md:mt-0">
-            <div className="w-full max-w-md md:max-w-none">
+          <div className="flex items-center justify-center mt-8 md:mt-0 relative">
+            <div className="relative w-full max-w-md md:max-w-none">
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-200/20 via-amber-100/10 to-transparent rounded-2xl blur-3xl -z-10"></div>
               <img
-                src={heroImage}
-                alt="Happy family in front of their new home under construction"
-                className="w-full h-auto object-contain"
+                src="/Whisk_d6488dffa60ed5999b04cfed59946fd1dr.jpeg"
+                alt="Happy Tamil Nadu family celebrating in front of their new home"
+                className="w-full h-auto object-cover rounded-lg shadow-xl"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
           </div>
