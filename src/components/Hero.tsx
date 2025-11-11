@@ -23,7 +23,7 @@ const Hero = () => {
           <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <button
               onClick={() => open()}
-              className="bg-veeduway-accent hover:bg-veeduway-accentHover text-white rounded-full px-6 py-3 font-semibold shadow-[0_0_0_4px_#0074D920] hover:shadow-[0_0_0_6px_#0074D940] transition"
+              className="bg-[#0074D9] hover:bg-[#005BB5] text-white rounded-full px-6 py-3 font-semibold shadow-[0_0_0_4px_#0074D920] hover:shadow-[0_0_0_6px_#0074D940] transition"
             >
               Get Your Free Guideline
             </button>
