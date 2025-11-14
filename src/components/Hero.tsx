@@ -72,8 +72,8 @@ const Hero = () => {
             "
           />
           <img
-            src="/Whisk_7e0f6495b6e4b88a6e44dfa569b50171dr (1).jpeg"
-            alt="Happy family receiving house keys in front of their new home"
+            src="/Whisk_7e0f6495b6e4b88a6e44dfa569b50171dr (2).jpeg"
+            alt="Happy Indian family with keys standing in front of their modern new home with architectural blueprints overlay"
             className="relative z-[1] w-full h-auto rounded-3xl shadow-2xl ring-1 ring-blue-100 object-cover"
             loading="eager"
             decoding="async"
