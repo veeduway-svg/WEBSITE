@@ -1,24 +1,26 @@
 const SolutionOverview = () => {
+  const baseUrl = import.meta.env.BASE_URL;
+  
   const stages = [
     {
       name: "Planning",
-      image: "/Whisk_2fd49894c56c7878cd34890078db69e6eg.png"
+      image: `${baseUrl}Whisk_2fd49894c56c7878cd34890078db69e6eg.png`
     },
     {
       name: "Permits",
-      image: "/Whisk_ea72fefa8a79714a37c49fec6581a45beg.png"
+      image: `${baseUrl}Whisk_ea72fefa8a79714a37c49fec6581a45beg.png`
     },
     {
       name: "Construction",
-      image: "/Whisk_bafb2f77b308ac692324440ca3f19873eg.png"
+      image: `${baseUrl}Whisk_bafb2f77b308ac692324440ca3f19873eg.png`
     },
     {
       name: "Quality Control",
-      image: "/Whisk_8a3b640e05d715ea1b84f70d5fc86e5ceg.png"
+      image: `${baseUrl}Whisk_8a3b640e05d715ea1b84f70d5fc86e5ceg.png`
     },
     {
       name: "Completion",
-      image: "/Whisk_c6c6d189954fe7f84b74de8f306fff1ceg (1).png"
+      image: `${baseUrl}Whisk_c6c6d189954fe7f84b74de8f306fff1ceg (1).png`
     },
   ];
 
