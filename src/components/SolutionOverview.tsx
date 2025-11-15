@@ -4,23 +4,23 @@ const SolutionOverview = () => {
   const stages = [
     {
       name: "Planning",
-      image: `${baseUrl}Whisk_2fd49894c56c7878cd34890078db69e6eg copy.png`
+      image: `${baseUrl}Planning.png`
     },
     {
       name: "Permits",
-      image: `${baseUrl}Whisk_ea72fefa8a79714a37c49fec6581a45beg copy.png`
+      image: `${baseUrl}Permits.png`
     },
     {
       name: "Construction",
-      image: `${baseUrl}Whisk_bafb2f77b308ac692324440ca3f19873eg copy.png`
+      image: `${baseUrl}Construction.png`
     },
     {
       name: "Quality Control",
-      image: `${baseUrl}Whisk_8a3b640e05d715ea1b84f70d5fc86e5ceg copy.png`
+      image: `${baseUrl}quality.png`
     },
     {
       name: "Completion",
-      image: `${baseUrl}Whisk_c6c6d189954fe7f84b74de8f306fff1ceg (1).png`
+      image: `${baseUrl}Completion.png`
     },
   ];
 
