@@ -4,19 +4,19 @@ const SolutionOverview = () => {
   const stages = [
     {
       name: "Planning",
-      image: `${baseUrl}Whisk_2fd49894c56c7878cd34890078db69e6eg.png`
+      image: `${baseUrl}Whisk_2fd49894c56c7878cd34890078db69e6eg copy.png`
     },
     {
       name: "Permits",
-      image: `${baseUrl}Whisk_ea72fefa8a79714a37c49fec6581a45beg.png`
+      image: `${baseUrl}Whisk_ea72fefa8a79714a37c49fec6581a45beg copy.png`
     },
     {
       name: "Construction",
-      image: `${baseUrl}Whisk_bafb2f77b308ac692324440ca3f19873eg.png`
+      image: `${baseUrl}Whisk_bafb2f77b308ac692324440ca3f19873eg copy.png`
     },
     {
       name: "Quality Control",
-      image: `${baseUrl}Whisk_8a3b640e05d715ea1b84f70d5fc86e5ceg.png`
+      image: `${baseUrl}Whisk_8a3b640e05d715ea1b84f70d5fc86e5ceg copy.png`
     },
     {
       name: "Completion",
