@@ -54,7 +54,7 @@ const Privacy = () => {
                   Analytics and Session Recording
                 </h2>
                 <p className="text-veeduway-muted leading-relaxed">
-                  We use Microsoft Clarity to capture anonymous usage patterns to improve our user experience. No personal information is stored. Clarity helps us understand how users interact with our website through session replays and heatmaps, allowing us to optimize the user journey and identify areas for improvement.
+                  We use Microsoft Clarity and Facebook Pixel to capture anonymous usage patterns and improve our user experience. No personal information is stored. These tools help us understand how users interact with our website through session replays, heatmaps, and page view analytics, allowing us to optimize the user journey and identify areas for improvement.
                 </p>
               </section>
 
