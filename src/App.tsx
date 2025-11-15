@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProblemModalProvider } from "@/contexts/ProblemModalProvider";
 import ProblemModal from "@/components/ProblemModal";
 import Clarity from "@/components/Clarity";
+import FacebookPixel from "@/components/FacebookPixel";
 import Index from "./pages/Index";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -18,6 +19,7 @@ const App = () => (
     <TooltipProvider>
       <ProblemModalProvider modalComponent={ProblemModal}>
         <Clarity />
+        <FacebookPixel />
         <Toaster />
         <Sonner />
         <BrowserRouter basename="/WEBSITE/">
